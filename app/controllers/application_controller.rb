@@ -11,17 +11,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    @user = User.find_by(session[:username])
+    erb :login
   end
 
   get '/account' do
-
+    erb :account
   end
 
   get '/logout' do
-
+    erb :logout
   end
 
 
 end
-
