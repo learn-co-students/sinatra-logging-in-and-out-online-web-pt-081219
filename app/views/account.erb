@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-     <% if Helpers.is_logged_in?(session[:user_id]) %>
-     <h1>Welcome <%= Helpers.current_user(session[:user_id]).username%></h1>
-     <h3>Your Balance: <%= Helpers.current_user(session[:user_id]).balance %></h3>
+     <% if Helpers.is_logged_in?(session) %>
+     <h1>Welcome <%= @user.username%></h1>
+     <h3>Your Balance: <%= @user.balance %></h3>
  <%end%>
 <a href="/logout" >Log Out</a> 
 
