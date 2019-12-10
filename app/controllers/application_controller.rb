@@ -17,18 +17,20 @@ class ApplicationController < Sinatra::Base
     if @user !=nil && @user.password == params[:password] #checks there password to see if it matches too 
       session[:user_id] = @user.id
       redirect to '/account'
+    
     end
     erb :error
 end
 
   get '/account' do
-   @user = User.find_by(username: params[:username]) # to find use 
-if @user # if it finds user this will be truthy and go to account user
+  @user = User.find_by(id: session[:user_id]) # to find use 
+
+if @user# if it finds user this will be truthy and go to account user
     erb :account
     else # if it doesn't find user it will be nil and go to error page 
     erb :error
   end
-   
+
     end
 
 
